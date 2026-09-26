@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jobify - Modern Job Search Portal">
+    <title>Jobify | Find Your Next Opportunity</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">J</span>
+                Jobify
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#jobs">Find Jobs</a>
+                <a href="#companies">Companies</a>
+                <a href="#about">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="login-btn">Sign In</button>
+                <button class="post-job-btn">Post a Job</button>
+                <button class="menu-btn" id="menuBtn">☰</button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+
+                    <h1>
+                        Find work that
+                        <span>fits your future.</span>
+                    </h1>
+
+                    <p>
+                        Discover meaningful opportunities from companies
+                        that are looking for people like you.
+                    </p>
+                </div>
+
+                <!-- Search Box -->
+                <div class="search-box">
+
+                    <div class="search-field">
+                        <span class="search-icon">⌕</span>
+                        <div>
+                            <label>What are you looking for?</label>
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Job title, keyword..."
+                            >
+                        </div>
+                    </div>
+
+                    <div class="search-divider"></div>
+
+                    <div class="search-field">
+                        <span class="location-icon">⌖</span>
+                        <div>
+                            <label>Location</label>
+                            <input
+                                type="text"
+                                id="locationInput"
+                                placeholder="City or remote"
+                            >
+                        </div>
+                    </div>
+
+                    <button class="search-btn" id="searchBtn">
+                        Search Jobs
+                    </button>
+
+                </div>
+
+                <div class="popular-searches">
+                    <span>Popular:</span>
+                    <button data-search="Frontend Developer">Frontend Developer</button>
+                    <button data-search="UI/UX Designer">UI/UX Designer</button>
+                    <button data-search="Marketing">Marketing</button>
+                    <button data-search="Data Analyst">Data Analyst</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= JOB SECTION ================= -->
+        <section class="jobs-section" id="jobs">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">OPPORTUNITIES</span>
+                        <h2>Explore open positions</h2>
+                        <p id="resultText">Showing 8 available jobs</p>
+                    </div>
+
+                    <div class="sort-box">
+                        <label for="sortJobs">Sort by</label>
+                        <select id="sortJobs">
+                            <option value="latest">Latest</option>
+                            <option value="salary">Highest Salary</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="job-layout">
+
+                    <!-- ================= FILTER SIDEBAR ================= -->
+                    <aside class="filters">
+
+                        <div class="filter-header">
+                            <h3>Filters</h3>
+                            <button id="clearFilters">Clear all</button>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Job Type</h4>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Full-time" class="job-type">
+                                <span>Full-time</span>
+                                <small>124</small>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Part-time" class="job-type">
+                                <span>Part-time</span>
+                                <small>48</small>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Remote" class="job-type">
+                                <span>Remote</span>
+                                <small>86</small>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Internship" class="job-type">
+                                <span>Internship</span>
+                                <small>32</small>
+                            </label>
+                        </div>
+
+
+                        <div class="filter-group">
+                            <h4>Experience</h4>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Entry Level" class="experience">
+                                <span>Entry Level</span>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Mid Level" class="experience">
+                                <span>Mid Level</span>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" value="Senior Level" class="experience">
+                                <span>Senior Level</span>
+                            </label>
+                        </div>
+
+
+                        <div class="filter-group">
+                            <h4>Job Category</h4>
+
+                            <select id="categoryFilter" class="category-select">
+                                <option value="all">All Categories</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Design">Design</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Business">Business</option>
+                                <option value="Data">Data</option>
+                            </select>
+                        </div>
+
+                    </aside>
+
+
+                    <!-- ================= JOB LIST ================= -->
+                    <div class="jobs-container" id="jobsContainer">
+
+                        <!-- Job 1 -->
+                        <article class="job-card"
+                            data-title="Frontend Developer"
+                            data-company="NovaTech"
+                            data-location="Islamabad"
+                            data-type="Full-time"
+                            data-experience="Entry Level"
+                            data-category="Technology"
+                            data-salary="120000"
+                            data-description="Build responsive and user-friendly web interfaces using modern frontend technologies. Work closely with designers and backend developers to create excellent digital experiences.">
+
+                            <div class="company-logo logo-blue">N</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <span class="featured">FEATURED</span>
+                                        <h3>Frontend Developer</h3>
+                                        <p class="company-name">NovaTech</p>
+                                    </div>
+
+                                    <button class="save-btn" aria-label="Save job">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Islamabad</span>
+                                    <span>● Full-time</span>
+                                    <span>◷ 2 days ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 100k – 150k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 2 -->
+                        <article class="job-card"
+                            data-title="UI/UX Designer"
+                            data-company="Pixel Studio"
+                            data-location="Lahore"
+                            data-type="Full-time"
+                            data-experience="Mid Level"
+                            data-category="Design"
+                            data-salary="140000"
+                            data-description="Design intuitive interfaces and engaging user experiences for web and mobile products. Create wireframes, prototypes and visual design systems.">
+
+                            <div class="company-logo logo-purple">P</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <span class="new-tag">NEW</span>
+                                        <h3>UI/UX Designer</h3>
+                                        <p class="company-name">Pixel Studio</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Lahore</span>
+                                    <span>● Full-time</span>
+                                    <span>◷ 1 day ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 120k – 160k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 3 -->
+                        <article class="job-card"
+                            data-title="Digital Marketing Specialist"
+                            data-company="GrowthLab"
+                            data-location="Remote"
+                            data-type="Remote"
+                            data-experience="Mid Level"
+                            data-category="Marketing"
+                            data-salary="110000"
+                            data-description="Plan and execute digital marketing campaigns across social media, search and email. Analyze campaign performance and develop growth strategies.">
+
+                            <div class="company-logo logo-orange">G</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <h3>Digital Marketing Specialist</h3>
+                                        <p class="company-name">GrowthLab</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Remote</span>
+                                    <span>● Remote</span>
+                                    <span>◷ 3 days ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 90k – 130k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 4 -->
+                        <article class="job-card"
+                            data-title="Data Analyst"
+                            data-company="Insight Analytics"
+                            data-location="Karachi"
+                            data-type="Full-time"
+                            data-experience="Entry Level"
+                            data-category="Data"
+                            data-salary="100000"
+                            data-description="Analyze business data, create dashboards and identify trends that help teams make better decisions. Experience with Excel, SQL or data visualization is preferred.">
+
+                            <div class="company-logo logo-green">I</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <h3>Data Analyst</h3>
+                                        <p class="company-name">Insight Analytics</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Karachi</span>
+                                    <span>● Full-time</span>
+                                    <span>◷ 4 days ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 80k – 120k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 5 -->
+                        <article class="job-card"
+                            data-title="Software Engineering Intern"
+                            data-company="CodeCraft"
+                            data-location="Islamabad"
+                            data-type="Internship"
+                            data-experience="Entry Level"
+                            data-category="Technology"
+                            data-salary="40000"
+                            data-description="Join our engineering team as a software engineering intern. Work on real-world projects, learn development workflows and collaborate with experienced engineers.">
+
+                            <div class="company-logo logo-dark">C</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <span class="intern-tag">INTERNSHIP</span>
+                                        <h3>Software Engineering Intern</h3>
+                                        <p class="company-name">CodeCraft</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Islamabad</span>
+                                    <span>● Internship</span>
+                                    <span>◷ 5 days ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 30k – 50k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 6 -->
+                        <article class="job-card"
+                            data-title="Product Manager"
+                            data-company="Orbit Labs"
+                            data-location="Remote"
+                            data-type="Remote"
+                            data-experience="Senior Level"
+                            data-category="Business"
+                            data-salary="220000"
+                            data-description="Lead product strategy from concept to launch. Work with engineering, design and marketing teams to build products customers love.">
+
+                            <div class="company-logo logo-red">O</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <h3>Product Manager</h3>
+                                        <p class="company-name">Orbit Labs</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Remote</span>
+                                    <span>● Remote</span>
+                                    <span>◷ 1 week ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 180k – 260k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 7 -->
+                        <article class="job-card"
+                            data-title="Content Writer"
+                            data-company="WordHouse"
+                            data-location="Remote"
+                            data-type="Part-time"
+                            data-experience="Entry Level"
+                            data-category="Marketing"
+                            data-salary="60000"
+                            data-description="Create engaging articles, website copy and social media content. Research topics and collaborate with the creative team to maintain a consistent brand voice.">
+
+                            <div class="company-logo logo-yellow">W</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <h3>Content Writer</h3>
+                                        <p class="company-name">WordHouse</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Remote</span>
+                                    <span>● Part-time</span>
+                                    <span>◷ 1 week ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 50k – 70k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+
+                        <!-- Job 8 -->
+                        <article class="job-card"
+                            data-title="Junior Web Developer"
+                            data-company="WebNest"
+                            data-location="Rawalpindi"
+                            data-type="Full-time"
+                            data-experience="Entry Level"
+                            data-category="Technology"
+                            data-salary="90000"
+                            data-description="Develop and maintain responsive websites using HTML, CSS and JavaScript. Work with the team to improve website performance and user experience.">
+
+                            <div class="company-logo logo-cyan">W</div>
+
+                            <div class="job-info">
+                                <div class="job-top">
+                                    <div>
+                                        <h3>Junior Web Developer</h3>
+                                        <p class="company-name">WebNest</p>
+                                    </div>
+
+                                    <button class="save-btn">♡</button>
+                                </div>
+
+                                <div class="job-meta">
+                                    <span>⌖ Rawalpindi</span>
+                                    <span>● Full-time</span>
+                                    <span>◷ 2 weeks ago</span>
+                                </div>
+
+                                <div class="job-bottom">
+                                    <span class="salary">PKR 70k – 110k / month</span>
+                                    <button class="details-btn">View Details</button>
+                                </div>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= COMPANIES ================= -->
+        <section class="companies-section" id="companies">
+
+            <div class="container">
+
+                <div class="section-heading centered">
+                    <span class="section-label">TRUSTED COMPANIES</span>
+                    <h2>Companies hiring now</h2>
+                    <p>Explore opportunities from growing teams.</p>
+                </div>
+
+                <div class="company-grid">
+                    <div class="company-box">
+                        <span class="mini-logo">N</span>
+                        <strong>NovaTech</strong>
+                    </div>
+
+                    <div class="company-box">
+                        <span class="mini-logo purple">P</span>
+                        <strong>Pixel Studio</strong>
+                    </div>
+
+                    <div class="company-box">
+                        <span class="mini-logo orange">G</span>
+                        <strong>GrowthLab</strong>
+                    </div>
+
+                    <div class="company-box">
+                        <span class="mini-logo green">I</span>
+                        <strong>Insight Analytics</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+        <section class="cta-section" id="about">
+
+            <div class="container cta-content">
+
+                <div>
+                    <span class="section-label">FOR EMPLOYERS</span>
+                    <h2>Have an opportunity?</h2>
+                    <p>Connect with talented people who are ready for their next challenge.</p>
+                </div>
+
+                <button class="cta-btn">Post a Job →</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-icon">J</span>
+                    Jobify
+                </a>
+
+                <p>
+                    Making job searching simpler,
+                    smarter and more human.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#jobs">Jobs</a>
+                <a href="#companies">Companies</a>
+                <a href="#about">About</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Jobify. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JOB MODAL ================= -->
+    <div class="modal-overlay" id="jobModal">
+
+        <div class="job-modal">
+
+            <button class="close-modal" id="closeModal">×</button>
+
+            <div class="modal-logo" id="modalLogo">N</div>
+
+            <span class="modal-label">JOB OPPORTUNITY</span>
+
+            <h2 id="modalTitle">Frontend Developer</h2>
+
+            <p class="modal-company" id="modalCompany">
+                NovaTech
+            </p>
+
+            <div class="modal-meta">
+                <span id="modalLocation">⌖ Islamabad</span>
+                <span id="modalType">● Full-time</span>
+            </div>
+
+            <div class="modal-section">
+                <h3>About the role</h3>
+                <p id="modalDescription"></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>What you'll get</h3>
+
+                <div class="benefits">
+                    <span>✓ Flexible work</span>
+                    <span>✓ Growth opportunities</span>
+                    <span>✓ Learning budget</span>
+                </div>
+            </div>
+
+            <button class="apply-btn" id="applyBtn">
+                Apply for this position →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <p id="toastMessage">Application started!</p>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
